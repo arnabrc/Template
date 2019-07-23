@@ -7,19 +7,22 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
+import { ForgotComponent } from './forgot/forgot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    DashboardComponent
+    DashboardComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
+      { path: 'forgot', component: ForgotComponent, pathMatch: 'full' },
       { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
       { path: '', redirectTo: 'login', pathMatch: 'full' },

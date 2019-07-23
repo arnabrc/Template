@@ -23,13 +23,19 @@
                                     <div class="invalid-feedback">Enter your password too!</div>
                                 </div>
                                 <div class="checkbox">
-                                    <label class="custom-control custom-checkbox">
+                                    <!--<label class="custom-control custom-checkbox">
                                       <input type="checkbox" class="custom-control-input">
                                       <span class="custom-control-indicator"></span>
-                                      <span class="custom-control-description small text-dark">Remember me on this computer</span>
-                                    </label>
+                                      <label class="custom-control-description small text-dark">Remember me on this computer</label>
+                                    </label>-->
+                                    <div class="custom-control custom-checkbox mb-3">
+                                      <input type="checkbox" class="custom-control-input" id="customCheck" name="check">
+                                      <label class="custom-control-label" for="customCheck">Remember me on this computer</label>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                                <br><br>
+                                <a href="forgot">Forgot Password</a>
                                 <br><br>
                                 <a href="registration">Register Here</a>
 
