@@ -1,0 +1,17 @@
+<div class="alert1 alert-warning" *ngIf="control || group">
+  <ul *ngIf="shouldShowErrors()">
+    <li style="color: red" *ngFor="let error of listOfErrors()">{{error}}</li>
+  </ul>
+</div>
+
+<div class="alert2 alert-danger">
+  <div *ngIf="loginError()">
+    <p style="color: red">{{msg}}</p>
+  </div>
+</div>
+
+<div class="alert3 alert-success">
+  <div *ngIf="success()">
+    <p style="color: red">{{reg}}</p>
+  </div>
+</div>

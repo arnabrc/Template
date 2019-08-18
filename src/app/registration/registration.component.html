@@ -3,33 +3,55 @@
         <div class="col-md-6 mx-auto">
                 <div class="card card-body">
                     <h3 class="text-center mb-4">Sign-up</h3>
-                    <div class="alert alert-danger">
+                    <!--<div class="alert alert-danger">
                         <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>Password is too short.
-                    </div>
+                    </div>-->
                     <fieldset>
+                      <form [formGroup]="profileForm" #myform="ngForm">
                         <div class="form-group has-error">
-                            <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="text">
+                            <input class="form-control input-lg" formControlName="email" placeholder="E-mail Address" name="email" id="email" type="text" autofocus>
                         </div>
-                        <div class="form-group has-success">
-                            <input class="form-control input-lg" placeholder="Password" name="password" value="" type="password">
+                        <app-error *ngIf="myform.submitted" [control]="email"></app-error>
+                        <div formGroupName="passwords">
+                          <!--<div class="form-group has-success">-->
+                          <div class="form-group">
+                              <input class="form-control input-lg" formControlName="password1" placeholder="Password" name="password1" id="password1" value="" type="password" required>
+                          </div>
+                          <div>
+                            <p>Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters</p>
+                          </div>
+                          <!--<div class="form-group has-success">-->
+                          <div class="form-group">
+                              <input class="form-control input-lg" formControlName="password2" placeholder="Confirm Password" name="password2" value="" type="password" required>
+                          </div>
+                          <div>
+                            <p>Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters</p>
+                          </div>
                         </div>
-                        <div class="form-group has-success">
-                            <input class="form-control input-lg" placeholder="Confirm Password" name="password" value="" type="password">
+                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.passwords" [group]="passwords"></app-error>
+                        <div class="form-group" formGroupName="questions" name='questions' id='questions' required>
+                          <select class="form-control input-lg" formControlName="question" required>
+                            <option *ngFor='let q of Questions'>{{q}}</option>
+                            <!--<option selected="" selected disabled hidden>Security Question</option>
+                            <option value='Q1'>What is the name of your first school?</option>
+                            <option value='Q2'>What is your mother's maiden name?</option>
+                            <option value='Q3'>Who is your favourite sportsman?</option>
+                            <option value='Q4'>Where did you first meet your girl?</option>
+                            <option value='Q5'>What is your dream tourist location?</option>-->
+                          </select>
                         </div>
+                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.question" [group]="questions"></app-error>
                         <div class="form-group">
-                            <select class="form-control input-lg">
-                                <option selecterd="">Sequrity Question</option>
-                            </select>
+                            <input class="form-control input-lg" formControlName="answer" placeholder="Sequrity Answer" id="answer" name="answer" value="" type="text" required>
                         </div>
-                        <div class="form-group">
-                            <input class="form-control input-lg" placeholder="Sequrity Answer" name="answer" value="" type="text">
-                        </div>
-                        <div class="checkbox">
+                        <div class="checkbox form-control">
                             <label class="small">
-                                <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
+                                <input formControlName="checkbox" name="terms" id="terms" type="checkbox"> I have read and agree to the <a href="#">terms of service</a>
                             </label>
                         </div>
-                        <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit">
+                        <br>
+                        <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" (click)="onSubmit()">
+                      </form>
                     </fieldset>
                 </div>
         </div>
