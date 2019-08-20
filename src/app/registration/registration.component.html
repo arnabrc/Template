@@ -17,6 +17,7 @@
                           <div class="form-group">
                               <input class="form-control input-lg" formControlName="password1" placeholder="Password" name="password1" id="password1" value="" type="password" required>
                           </div>
+                          <app-error *ngIf="myform.submitted" [control]="profileForm.controls.passwords.controls.password1" [group]="passwords"></app-error>
                           <div>
                             <p>Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters</p>
                           </div>
@@ -24,31 +25,30 @@
                           <div class="form-group">
                               <input class="form-control input-lg" formControlName="password2" placeholder="Confirm Password" name="password2" value="" type="password" required>
                           </div>
+                          <app-error *ngIf="myform.submitted" [control]="profileForm.controls.passwords.controls.password2" [group]="passwords"></app-error>
                           <div>
                             <p>Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters</p>
                           </div>
                         </div>
                         <app-error *ngIf="myform.submitted" [control]="profileForm.controls.passwords" [group]="passwords"></app-error>
-                        <div class="form-group" formGroupName="questions" name='questions' id='questions' required>
-                          <select class="form-control input-lg" formControlName="question" required>
-                            <option *ngFor='let q of Questions'>{{q}}</option>
-                            <!--<option selected="" selected disabled hidden>Security Question</option>
-                            <option value='Q1'>What is the name of your first school?</option>
-                            <option value='Q2'>What is your mother's maiden name?</option>
-                            <option value='Q3'>Who is your favourite sportsman?</option>
-                            <option value='Q4'>Where did you first meet your girl?</option>
-                            <option value='Q5'>What is your dream tourist location?</option>-->
-                          </select>
+                        <div formGroupName="questions">
+                          <div class="form-group">
+                            <select class="form-control input-lg" formControlName="question">
+                              <option *ngFor='let q of Questions'>{{q}}</option>
+                            </select>
+                          </div>
                         </div>
-                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.question" [group]="questions"></app-error>
+                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.questions.controls.question" [group]="questions"></app-error>
                         <div class="form-group">
-                            <input class="form-control input-lg" formControlName="answer" placeholder="Sequrity Answer" id="answer" name="answer" value="" type="text" required>
+                            <input class="form-control input-lg" formControlName="answer" placeholder="Security Answer" id="answer" name="answer" value="" type="text" required>
                         </div>
+                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.answer"></app-error>
                         <div class="checkbox form-control">
                             <label class="small">
                                 <input formControlName="checkbox" name="terms" id="terms" type="checkbox"> I have read and agree to the <a href="#">terms of service</a>
                             </label>
                         </div>
+                        <app-error *ngIf="myform.submitted" [control]="profileForm.controls.checkbox"></app-error>
                         <br>
                         <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" (click)="onSubmit()">
                       </form>

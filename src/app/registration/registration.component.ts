@@ -1,5 +1,4 @@
 import {PasswordValidator} from '../validators/password-validator';
-import {Questions} from '../validators/questions';
 import {ValidateEmailNotTaken} from '../validators/validate-email-not-taken';
 import {LoaderService} from '../services/loader.service';
 import { Component, OnInit, HostListener } from '@angular/core';
@@ -58,15 +57,8 @@ export class RegistrationComponent implements OnInit {
         validator: PasswordValidator.passwordMatch
       }),
       questions: this.fb.group({
-        question: ['', Validators.compose([Validators.required])],
-        /*Q1: [''],
-        Q2: [''],
-        Q3: [''],
-        Q4: [''],
-        Q5: ['']*/
-      },
-      { validator: Questions.questionCheck }),
-      // questions: ['', Validators.compose([Validators.required])],
+        question: ['', Validators.compose([Validators.required])]
+      }),
       answer: ['', Validators.compose([Validators.required])],
       checkbox: ['', Validators.compose([Validators.required])],
       aliases: this.fb.array([
@@ -78,11 +70,7 @@ export class RegistrationComponent implements OnInit {
   get email() { return this.profileForm.get('email'); }
   get password1() { return this.profileForm.get('password1'); }
   get password2() { return this.profileForm.get('password2'); }
-  get Q1() { return this.profileForm.get('Q1'); }
-  get Q2() { return this.profileForm.get('Q2'); }
-  get Q3() { return this.profileForm.get('Q3'); }
-  get Q4() { return this.profileForm.get('Q4'); }
-  get Q5() { return this.profileForm.get('Q5'); }
+  get question() { return this.profileForm.get('question'); }
   get answer() { return this.profileForm.get('answer'); }
   get checkbox() { return this.profileForm.get('checkbox'); }
 
