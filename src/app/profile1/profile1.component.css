@@ -1,0 +1,49 @@
+/*:root{
+	font-size: 16px;
+}
+body{
+	margin: 0;
+	background-color: #00FFFF;
+}
+section{
+	background: linear-gradient(to right, #00FFFF, #7FFFD4) ;
+}
+header{
+	position: fixed;
+	height: 10vh;
+	width: 100%;
+	background-color: #333;
+	box-shadow: 1vw 1.3vh 5vmax 1vmin #808080;
+}*/
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+img {
+    height: auto;
+    width: 20%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*section {
+    background: linear-gradient(to right, rgb(146, 133, 20), rgb(8, 95, 175));
+}*/
+
+.heading {
+    color: rgb(12, 12, 12);
+    font-family: 'Chela One', cursive;
+    font-size: 3rem;
+    height: auto;
+    width: 100%;
+    word-break: break-all;
+}

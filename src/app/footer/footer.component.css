@@ -1,0 +1,9 @@
+        :host {
+           /*background: #5786E1;*/
+           padding: 10px;
+       }
+       
+       .text {
+           display: flex;
+           justify-content: center;
+       }

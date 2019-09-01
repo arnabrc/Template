@@ -1,3 +1,7 @@
-<p>
-  loader works!
-</p>
+<div [class.hidden]="!show">
+  <div id="spinner-overlay">
+    <div *ngIf="show" class="spinner"><!</div>
+  </div>
+</div>
+
+<!--<div class="spinner"></div>-->

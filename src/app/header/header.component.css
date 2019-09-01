@@ -1,0 +1,9 @@
+:host {
+    /*background: rgb(18, 197, 41);*/
+    padding: 30px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+}

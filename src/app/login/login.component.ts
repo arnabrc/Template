@@ -1,6 +1,6 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   submitted = false;
   users: any;
   hasError = false;
+
+  @Input() checked: boolean;
 
   @HostListener('window:beforeunload')
   canDeactivate(): Observable<boolean> | boolean {
@@ -59,6 +61,9 @@ export class LoginComponent implements OnInit {
         console.log('success');
         if (this.profileFormLogin.valid) {
           this.auth.setToken(this.profileFormLogin.value.email);
+          if(this.checked) {
+            this.auth.setCookie(this.profileFormLogin.value.email, this.profileFormLogin.value.password);
+          }
           // localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         }

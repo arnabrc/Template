@@ -8,7 +8,7 @@
 <body>
 
 <!-- Navbar -->
-<div class="w3-top">
+<!--<div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
@@ -16,16 +16,75 @@
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
-  </div>
+  </div>-->
 
   <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+  <!--<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
-</div>
+</div>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!--<li class="nav-item active">
+        <a class="nav-link" href="#" onclick="deleteToken()">Logout<span class="sr-only">(current)</span></a>
+      </li>-->
+      <li class="nav-item">
+        <a class="nav-link" href="profile1">Profile1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile2">Profile2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile3">Profile3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile4">Profile4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="edit-profile">Manage Profiles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="output-graph">Success Graph</a>
+      </li>
+      <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>-->
+    </ul>
+    <!--<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="myFunction()">-->
+    <button appHover tooltip="Work In Progress" placement="top" delay="500" class="btn btn-outline-success my-2 my-sm-0"
+      type="submit" (click)="myFunction()">
+      Delete Cookies
+    </button>
+    <button class="btn btn-outline-success my-2 my-sm-0" style="margin: 2%;" type="submit" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
