@@ -22,7 +22,6 @@ export class CookieService {
       document.cookie = `password = ${cookieVariable2}; ${expires}${cpath}`;*/
       document.cookie = `email = ${cookieVariable1}; ${expires}`;
       document.cookie = `password = ${cookieVariable2}; ${expires}`;
-      alert (document.cookie);
     }
   }
 
