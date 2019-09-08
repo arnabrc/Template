@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         console.log('success');
         if (this.profileFormLogin.valid) {
           this.auth.setToken(this.profileFormLogin.value.email);
-          if(this.checked) {
+          if (this.checked) {
             this.auth.setCookie(this.profileFormLogin.value.email, this.profileFormLogin.value.password);
           }
           // localStorage.setItem('isLoggedIn', 'true');

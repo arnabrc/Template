@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-</head>
+<app-header fxLayout="column"></app-header>
 
-<body>
-  <app-header fxLayout="column"></app-header>
-
-  <div fxLayout="row" fxFlex="100">
-    <div class="content" fxLayout="column" fxFlex>
-      <router-outlet></router-outlet>
-    </div>
+<div fxLayout="row" fxFlex="100">
+  <div class="content" fxLayout="column" fxFlex>
+    <router-outlet></router-outlet>
   </div>
+</div>
 
-  <app-footer fxLayout="column"></app-footer>
-</body>
+<app-footer fxLayout="column"></app-footer>

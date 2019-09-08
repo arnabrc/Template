@@ -7,25 +7,45 @@ import { Router } from '@angular/router';
 export class CookieService {
   constructor(private router: Router) { }
 
-  sendLoginCookie(email: string, password: string, expireDays: number, path: string = '') {
+  // sendLoginCookie(email: string, password: string, expireDays: number, path: string = '') {
+  sendLoginCookie(email: string, password: string, expireDays: number) {
     const cookieVariable1 = email;
     const cookieVariable2 = window.btoa(password);
+    // const path = window.location.pathname;
     const d: Date = new Date();
     d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
     const expires = `expires=${d.toUTCString()}`;
-    const cpath: string = path ? `; path=${path}` : '';
-    console.log('sendLoginCookie');
+    // const cpath: string = path ? `; path=${path}` : '';
     if ( typeof cookieVariable1 === 'string' && typeof cookieVariable2 === 'string' ) {
-      document.cookie = `email = ${cookieVariable1}; ${expires}${cpath}`;
-      document.cookie = `password = ${cookieVariable2}; ${expires}${cpath}`;
+      console.log('sendLoginCookie');
+      /*document.cookie = `email = ${cookieVariable1}; ${expires}${cpath}`;
+      document.cookie = `password = ${cookieVariable2}; ${expires}${cpath}`;*/
+      document.cookie = `email = ${cookieVariable1}; ${expires}`;
+      document.cookie = `password = ${cookieVariable2}; ${expires}`;
+      alert (document.cookie);
     }
   }
 
-  /*deleteLoginCookie() {
-    const name = '';
-    console.log('Cookie: ' + name);
-    this.sendLoginCookie(name, '', -1);
-  }*/
+  deleteLoginCookie() {
+    console.log('deleteLoginCookie');
+    this.sendLoginCookie('', '', -1);
+  }
+
+  getLoginCookie(name: string) {
+    const ca: Array<string> = document.cookie.split(';');
+    const caLen: number = ca.length;
+    const cookieName = name;
+    let c: string;
+
+    for (let i = 0; i < caLen; i += 1) {
+        c = ca[i].replace(/^\s+/g, '');
+        if (c.indexOf(cookieName) === 0 || c.indexOf(cookieName) === 24) {
+          console.log('getLoginCookie');
+          console.log(cookieName, cookieName.length, c.length);
+          return c.substring(cookieName.length, c.length);
+      }
+    }
+  }
 
   /*deleteCookie(name: string) {
     console.log('Cookie: ' + name);

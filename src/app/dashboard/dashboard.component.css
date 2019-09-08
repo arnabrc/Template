@@ -24,6 +24,7 @@ button {
     width: 100%;
 }
 
+
 /*.btn {
     justify-content: center;
     height: 10vh;
@@ -79,5 +80,3 @@ button [tooltip] {
 .ng-tooltip-show {
     opacity: 1;
 }
-
-

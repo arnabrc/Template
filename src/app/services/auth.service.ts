@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
 import { SessionService } from './session.service';
 import { CookieService } from './cookie.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,22 +29,21 @@ export class AuthService {
   }
 
   setCookie(email: string, password: string) {
-    console.log('sendLoginCookie');
     const expires = 365;
-    const path = window.location.pathname;
-    this.cookie.sendLoginCookie(email, password, expires, path);
+    // const path = window.location.pathname;
+    this.cookie.sendLoginCookie(email, password, expires);
   }
 
-  /*getCookie() {
-    //this.cookie.getLoginCookie();
-  }*/
+  getCookie(name: string) {
+    return this.cookie.getLoginCookie(name);
+  }
 
   /*deleteSpecificCookie(cookieName: string) {
     this.cookie.deleteCookie(cookieName);
   }*/
 
-  /*deleteAllCookie() {
-      this.cookie.deleteLoginCookie();
-  }*/
+  deleteAllCookie() {
+    this.cookie.deleteLoginCookie();
+  }
 
 }
